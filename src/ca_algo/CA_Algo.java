@@ -15,6 +15,11 @@ import java.time.format.DateTimeFormatter;
 public class CA_Algo {
 
     /**
+     * Add item to the FRONT of the deque. Time Complexity: O(1)
+     */
+    
+
+    /**
      * FoodItem class - represents a food item stored in the storage unit.
      * Demonstrates OOP: Encapsulation
      */
@@ -56,6 +61,7 @@ public class CA_Algo {
                     name, weight, bestBefore.format(dateFmt), storedAt.format(dateTimeFmt));
         }
     }
+
     /**
      * StorageDeque - Array-based Double-Ended Queue. Demonstrates the core data
      * structure for the assignment.
@@ -91,5 +97,41 @@ public class CA_Algo {
         public int getCapacity() {
             return capacity;
         }
+        public boolean addFront(FoodItem item) {
+        if (isFull()) {
+            System.out.println("Storage is FULL! Cannot add more items.");
+            return false;
+        }
+        if (isEmpty()) {
+            front = 0;
+            rear = 0;
+        } else {
+            front = (front - 1 + capacity) % capacity;
+        }
+        arr[front] = item;
+        count++;
+        System.out.println(item.getName() + " added to FRONT of storage.");
+        return true;
+    }
+
+    /**
+     * Add item to the REAR of the deque. Time Complexity: O(1)
+     */
+    public boolean addRear(FoodItem item) {
+        if (isFull()) {
+            System.out.println("Storage is FULL! Cannot add more items.");
+            return false;
+        }
+        if (isEmpty()) {
+            front = 0;
+            rear = 0;
+        } else {
+            rear = (rear + 1) % capacity;
+        }
+        arr[rear] = item;
+        count++;
+        System.out.println(item.getName() + " added to REAR of storage.");
+        return true;
+    }
     }
 }
