@@ -4,6 +4,10 @@
  */
 package ca_algo;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author ella
@@ -11,10 +15,46 @@ package ca_algo;
 public class CA_Algo {
 
     /**
-     * @param args the command line arguments
+     * FoodItem class - represents a food item stored in the storage unit.
+     * Demonstrates OOP: Encapsulation
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public class FoodItem {
+
+        private String name;
+        private double weight; // in grams
+        private LocalDate bestBefore;
+        private LocalDateTime storedAt;
+
+        public FoodItem(String name, double weight, LocalDate bestBefore) {
+            this.name = name;
+            this.weight = weight;
+            this.bestBefore = bestBefore;
+            this.storedAt = LocalDateTime.now();
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getWeight() {
+            return weight;
+        }
+
+        public LocalDate getBestBefore() {
+            return bestBefore;
+        }
+
+        public LocalDateTime getStoredAt() {
+            return storedAt;
+        }
+
+        @Override
+        public String toString() {
+            DateTimeFormatter dateFmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            DateTimeFormatter dateTimeFmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            return String.format("Name: %-10s | Weight: %6.1fg | Best Before: %s | Stored At: %s",
+                    name, weight, bestBefore.format(dateFmt), storedAt.format(dateTimeFmt));
+        }
     }
-    
+
 }
