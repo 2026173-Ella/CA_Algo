@@ -56,5 +56,40 @@ public class CA_Algo {
                     name, weight, bestBefore.format(dateFmt), storedAt.format(dateTimeFmt));
         }
     }
+    /**
+     * StorageDeque - Array-based Double-Ended Queue. Demonstrates the core data
+     * structure for the assignment.
+     */
+    public class StorageDeque {
 
+        private FoodItem[] arr;
+        private int front;
+        private int rear;
+        private int capacity;
+        private int count;
+
+        public StorageDeque(int capacity) {
+            this.capacity = capacity;
+            this.arr = new FoodItem[capacity];
+            this.front = -1;
+            this.rear = -1;
+            this.count = 0;
+        }
+
+        public boolean isEmpty() {
+            return count == 0;
+        }
+
+        public boolean isFull() {
+            return count == capacity;
+        }
+
+        public int size() {
+            return count;
+        }
+
+        public int getCapacity() {
+            return capacity;
+        }
+    }
 }
