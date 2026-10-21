@@ -132,4 +132,52 @@ public class StorageDeque {
         }
         return arr[rear];
     }
+        /**
+     * Display all items from front to rear. Time Complexity: O(n)
+     */
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Storage is EMPTY!");
+            return;
+        }
+        System.out.println("\n===== STORAGE CONTENTS (Front -> Rear) =====");
+        int i = front;
+        int steps = 0;
+        while (steps < count) {
+            System.out.println("[" + (steps + 1) + "] " + arr[i]);
+            i = (i + 1) % capacity;
+            steps++;
+        }
+        System.out.println("Total items: " + count + "/" + capacity);
+        System.out.println("=============================================\n");
+    }
+
+    /**
+     * Display the top (front) item name only.
+     */
+    public void displayTop() {
+        if (isEmpty()) {
+            System.out.println("Storage is EMPTY!");
+            return;
+        }
+        System.out.println("Top item (front): " + arr[front].getName());
+    }
+
+    /**
+     * Linear search for a food item by name. Time Complexity: O(n)
+     * Returns position from front (0-based) or -1 if not found.
+     */
+    public int search(String name) {
+        if (isEmpty()) return -1;
+        int i = front;
+        int steps = 0;
+        while (steps < count) {
+            if (arr[i].getName().equalsIgnoreCase(name)) {
+                return steps;
+            }
+            i = (i + 1) % capacity;
+            steps++;
+        }
+        return -1;
+    }
 }
