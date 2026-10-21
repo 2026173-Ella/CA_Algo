@@ -2,6 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
+ * =====================================================================
+ *  CA1 - Algorithms and Constructs
+ *  Scenario: Fast-Food Restaurant Storage System
+ *  Data Structure: Double-Ended Queue (Deque) - Circular Array
+ *  Author: [Your Name]
+ *  Student ID: [Your ID]
+ *  Module: Algorithms and Constructs
+ *  Lecturer: Taufique Ahmed
+ *
+ *  Time Complexity Summary:
+ *    addFront / addRear      : O(1)
+ *    removeFront / removeRear: O(1)
+ *    peekFront / peekRear    : O(1)
+ *    isEmpty / isFull / size : O(1)
+ *    search                  : O(n)
+ *    display                 : O(n)
+ *
+ *  Space Complexity: O(n) where n = capacity (8)
+ * =====================================================================
+ */
 package ca_algo;
 
 import java.time.LocalDate;
