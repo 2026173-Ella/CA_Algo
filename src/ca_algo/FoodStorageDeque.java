@@ -4,14 +4,6 @@
  */
 /*
  * =====================================================================
- *  CA1 - Algorithms and Constructs
- *  Scenario: Fast-Food Restaurant Storage System
- *  Data Structure: Double-Ended Queue (Deque) - Circular Array
- *  Author: [Your Name]
- *  Student ID: [Your ID]
- *  Module: Algorithms and Constructs
- *  Lecturer: Taufique Ahmed
- *
  *  Time Complexity Summary:
  *    addFront / addRear      : O(1)
  *    removeFront / removeRear: O(1)
@@ -134,7 +126,6 @@ public class FoodStorageDeque {
         }
     }
 
-    // Placeholder methods filled in the next commits
     /**
      * Handles adding a food item with validation.
      */
