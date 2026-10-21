@@ -98,11 +98,57 @@ public class FoodStorageDeque {
     }
 
     // Placeholder methods filled in the next commits
+        /**
+     * Handles adding a food item with validation.
+     */
     private static void addItem(Scanner sc, StorageDeque storage, boolean toFront) {
-        System.out.println("(addItem not yet implemented)");
+        if (storage.isFull()) {
+            System.out.println("Storage is FULL (" + MAX_CAPACITY + " items max). Cannot add.");
+            return;
+        }
+
+        System.out.println("\nValid foods: Burger, Pizza, Fries, Sandwich, Hotdog");
+        System.out.print("Enter food name: ");
+        String name = sc.nextLine().trim();
+
+        if (!isValidFood(name)) {
+            System.out.println("Invalid food name! Must be one of the 5 listed items.");
+            return;
+        }
+
+        System.out.print("Enter weight (grams): ");
+        double weight;
+        try {
+            weight = Double.parseDouble(sc.nextLine().trim());
+            if (weight <= 0) {
+                System.out.println("Weight must be positive.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid weight! Please enter a number.");
+            return;
+        }
+
+        // Date validation added in the next commit
+        java.time.LocalDate bestBefore = java.time.LocalDate.now().plusDays(7);
+
+        FoodItem item = new FoodItem(name, weight, bestBefore);
+        if (toFront) {
+            storage.addFront(item);
+        } else {
+            storage.addRear(item);
+        }
+    }
+
+    private static boolean isValidFood(String name) {
+        for (String f : VALID_FOODS) {
+            if (f.equalsIgnoreCase(name)) return true;
+        }
+        return false;
     }
 
     private static void searchItem(Scanner sc, StorageDeque storage) {
         System.out.println("(searchItem not yet implemented)");
     }
+    
 }
