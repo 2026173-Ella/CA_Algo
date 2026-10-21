@@ -111,4 +111,25 @@ public class StorageDeque {
         System.out.println(item.getName() + " removed from REAR of storage.");
         return item;
     }
+        /**
+     * Peek at the FRONT item. Time Complexity: O(1)
+     */
+    public FoodItem peekFront() {
+        if (isEmpty()) {
+            System.out.println("Storage is EMPTY!");
+            return null;
+        }
+        return arr[front];
+    }
+
+    /**
+     * Peek at the REAR item. Time Complexity: O(1)
+     */
+    public FoodItem peekRear() {
+        if (isEmpty()) {
+            System.out.println("Storage is EMPTY!");
+            return null;
+        }
+        return arr[rear];
+    }
 }
