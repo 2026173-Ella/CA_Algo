@@ -72,4 +72,43 @@ public class StorageDeque {
         System.out.println(item.getName() + " added to REAR of storage.");
         return true;
     }
+        /**
+     * Remove item from the FRONT. Time Complexity: O(1)
+     */
+    public FoodItem removeFront() {
+        if (isEmpty()) {
+            System.out.println("Storage is EMPTY! Nothing to remove.");
+            return null;
+        }
+        FoodItem item = arr[front];
+        if (front == rear) {
+            front = -1;
+            rear = -1;
+        } else {
+            front = (front + 1) % capacity;
+        }
+        count--;
+        System.out.println(item.getName() + " removed from FRONT of storage.");
+        return item;
+    }
+
+    /**
+     * Remove item from the REAR. Time Complexity: O(1)
+     */
+    public FoodItem removeRear() {
+        if (isEmpty()) {
+            System.out.println("Storage is EMPTY! Nothing to remove.");
+            return null;
+        }
+        FoodItem item = arr[rear];
+        if (front == rear) {
+            front = -1;
+            rear = -1;
+        } else {
+            rear = (rear - 1 + capacity) % capacity;
+        }
+        count--;
+        System.out.println(item.getName() + " removed from REAR of storage.");
+        return item;
+    }
 }
